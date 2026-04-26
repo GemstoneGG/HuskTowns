@@ -45,7 +45,7 @@ public class Spawn {
     }
 
     /**
-     * Create a town spawn from a position and server
+     * Create town spawn from a position and server
      *
      * @param position the {@link Position} of the spawn
      * @param server   the ID of the server the spawn is on

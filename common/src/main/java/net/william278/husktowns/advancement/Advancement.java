@@ -313,7 +313,7 @@ public class Advancement {
     @NotNull
     public String getKey() {
         if (conditions.isEmpty()) {
-            return title.toLowerCase(Locale.ENGLISH).replaceAll(" ", "_");
+            return title.toLowerCase(Locale.ENGLISH).replace(" ", "_");
         }
         return conditions.stream()
             .map(Condition::getKey)

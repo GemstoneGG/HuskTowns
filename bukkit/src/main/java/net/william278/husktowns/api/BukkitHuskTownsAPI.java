@@ -328,7 +328,7 @@ public class BukkitHuskTownsAPI extends HuskTownsAPI {
     /**
      * Get a {@link ClaimMap} centered on a specified {@link org.bukkit.Chunk}.
      * <p/>
-     * The map will be centered on the specified chunk, and will be the size specified in the config.
+     * The map will be centered on the specified chunk and will be the size specified in the config.
      *
      * @param chunk The {@link org.bukkit.Chunk} to center the map on
      * @return The {@link ClaimMap} centered on the chunk

@@ -266,7 +266,6 @@ public class Settings {
         }
     }
 
-
     // General settings
     @Comment("Town settings")
     private TownSettings towns = new TownSettings();
@@ -351,7 +350,6 @@ public class Settings {
 
             }
         }
-
 
         // Admin Town settings
         @Comment("Admin Town settings for changing how admin claims look")

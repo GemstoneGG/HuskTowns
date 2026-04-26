@@ -155,13 +155,13 @@ public class Variable<T> {
     @NotNull
     public static <T> String valueToString(@NotNull T value) {
         final Class<?> type = value.getClass();
-        if (type == Integer.class || Objects.equals(type, int.class)) {
+        if (type == Integer.class) {
             return String.valueOf(value);
-        } else if (type == BigDecimal.class || Objects.equals(type, double.class)) {
+        } else if (type == BigDecimal.class) {
             return String.valueOf(value);
         } else if (type == OffsetDateTime.class) {
             return String.valueOf(value);
-        } else if (type == Boolean.class || Objects.equals(type, boolean.class)) {
+        } else if (type == Boolean.class) {
             return String.valueOf(value);
         } else {
             return value.toString();

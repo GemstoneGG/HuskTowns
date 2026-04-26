@@ -19,7 +19,6 @@
 
 package net.william278.husktowns.user;
 
-
 import net.william278.husktowns.BukkitHuskTowns;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;

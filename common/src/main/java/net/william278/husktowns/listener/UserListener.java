@@ -53,7 +53,7 @@ public interface UserListener {
             boolean updateNeeded = !savedUser.user().getUsername().equals(user.getUsername());
             final Optional<Town> userTown = getPlugin().getUserTown(user).map(Member::town);
 
-            // Notify if the user is in town chat, remove them if they are not in a town
+            // Notify if the user is in town chat, remove them if they are not in town
             if (preferences.isTownChatTalking()) {
                 if (userTown.isEmpty()) {
                     preferences.setTownChatTalking(false);

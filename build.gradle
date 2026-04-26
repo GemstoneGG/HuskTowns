@@ -1,8 +1,8 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
-    id 'com.gradleup.shadow' version '9.0.0-beta17'
-    id 'org.cadixdev.licenser' version '0.6.1' apply false
+    id 'com.gradleup.shadow' version '9.4.1'
+    id 'dev.yumi.gradle.licenser' version '3.0.1' apply false
     id 'org.ajoberstar.grgit' version '5.3.2'
     id 'maven-publish'
     id 'java'
@@ -11,7 +11,7 @@ plugins {
 group 'net.william278'
 version "$ext.plugin_version${versionMetadata()}"
 description "$ext.plugin_description"
-defaultTasks 'licenseFormat', 'build'
+defaultTasks 'applyLicenses', 'build'
 
 ext {
     set 'version', version.toString()
@@ -56,16 +56,15 @@ publishing {
 
 allprojects {
     apply plugin: 'com.gradleup.shadow'
-    apply plugin: 'org.cadixdev.licenser'
+    apply plugin: 'dev.yumi.gradle.licenser'
     apply plugin: 'java'
 
     compileJava.options.encoding = 'UTF-8'
-    compileJava.options.release.set 17
+    compileJava.options.release.set 21
     javadoc.options.encoding = 'UTF-8'
     javadoc.options.addStringOption('Xdoclint:none', '-quiet')
 
     repositories {
-        mavenLocal()
         mavenCentral()
         maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
         maven { url 'https://repo.papermc.io/repository/maven-public/' }
@@ -87,9 +86,8 @@ allprojects {
     }
 
     license {
-        header = rootProject.file('HEADER')
-        include '**/*.java'
-        newLine = true
+        rule(rootProject.file('HEADER'))
+        include('**/*.java')
     }
 
     test {
@@ -106,7 +104,7 @@ allprojects {
 
 subprojects {
     version rootProject.version
-    archivesBaseName = "${rootProject.name}-${project.name.capitalize()}"
+    base.archivesName = "${rootProject.name}-${project.name.capitalize()}"
 
     jar {
         from '../LICENSE'

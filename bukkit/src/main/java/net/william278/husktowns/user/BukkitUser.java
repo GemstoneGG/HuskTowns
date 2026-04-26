@@ -55,7 +55,7 @@ public final class BukkitUser extends OnlineUser {
     @Override
     @NotNull
     public Chunk getChunk() {
-        return Chunk.at(player.getLocation().getChunk().getX(), player.getLocation().getChunk().getZ());
+        return Chunk.at(player.getLocation().getBlockX() >> 4, player.getLocation().getBlockZ() >> 4);
     }
 
     @Override

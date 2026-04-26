@@ -20,7 +20,8 @@
 package net.william278.husktowns.events;
 
 /**
- * An event fired <i>after</i> a town is created by a player
+ * An event fired <i>after</i> a player creates a town
  */
 public interface IPostTownCreateEvent extends TownEvent, OnlineUserEvent {
+
 }

@@ -32,7 +32,6 @@ import java.util.Optional;
 
 public interface InspectionToolHandler {
 
-
     // When a player right-clicks with the inspection tool
     default void onPlayerInspect(@NotNull OperationUser operationUser, @NotNull OperationPosition clicked) {
         final OnlineUser user = (OnlineUser) operationUser;

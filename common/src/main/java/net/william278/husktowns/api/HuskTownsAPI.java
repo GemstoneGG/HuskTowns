@@ -868,7 +868,7 @@ public class HuskTownsAPI {
      * Get a player's Minecraft username by their {@link UUID}
      *
      * @param uuid the {@link UUID} of the player
-     * @return the player's Minecraft username, if they exist, in a future completing when the database lookup has completed
+     * @return the player's Minecraft username, if they exist, in the future completing when the database lookup has completed
      * @since 2.0
      */
     public CompletableFuture<Optional<String>> getUsername(@NotNull UUID uuid) {

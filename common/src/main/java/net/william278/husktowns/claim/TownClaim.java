@@ -46,6 +46,7 @@ public record TownClaim(@NotNull Town town, @NotNull Claim claim) {
     }
 
     @Override
+    @NotNull
     public String toString() {
         return "Town: " + town.getName() + ", Claim: " + claim;
     }

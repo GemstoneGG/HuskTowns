@@ -103,10 +103,10 @@ public abstract class Node implements Executable {
         return Optional.empty();
     }
 
-    protected Optional<Integer> parseTimeArgAsDays(@NotNull String[] args, int index) {
+    protected Optional<Integer> parseTimeArgAsDays(@NotNull String[] args) {
         final Map<String, Integer> units = Map.of("d", 1, "w", 7, "m", 30, "y", 365);
-        return parseIntArg(args, index)
-            .or(() -> parseStringArg(args, index).flatMap(arg -> units.entrySet().stream()
+        return parseIntArg(args, 0)
+            .or(() -> parseStringArg(args, 0).flatMap(arg -> units.entrySet().stream()
                 .filter(entry -> arg.endsWith(entry.getKey())).findFirst()
                 .flatMap(entry -> {
                     try {
@@ -136,11 +136,11 @@ public abstract class Node implements Executable {
         return Optional.empty();
     }
 
-    protected Optional<String> parseGreedyString(@NotNull String[] args, int startIndex) {
-        if (args.length > startIndex) {
+    protected Optional<String> parseGreedyString(@NotNull String[] args) {
+        if (args.length > 0) {
             final StringJoiner sentence = new StringJoiner(" ");
-            for (int i = startIndex; i < args.length; i++) {
-                sentence.add(args[i]);
+            for (String arg : args) {
+                sentence.add(arg);
             }
             return Optional.of(sentence.toString().trim());
         }

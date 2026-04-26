@@ -27,7 +27,6 @@ import net.william278.husktowns.HuskTowns;
 import net.william278.husktowns.claim.Claim;
 import net.william278.husktowns.claim.Position;
 import net.william278.husktowns.claim.World;
-import net.william278.husktowns.user.BukkitUser;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;

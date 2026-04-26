@@ -35,7 +35,7 @@ import java.util.logging.Level;
 public interface AdvancementProvider {
 
     default void loadAdvancements() {
-        // Create advancements file
+        // Create advancement file
         final File advancementsFile = new File(getPlugin().getDataFolder(), "advancements.json");
         if (!advancementsFile.exists()) {
             try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(advancementsFile), StandardCharsets.UTF_8)) {

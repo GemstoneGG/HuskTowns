@@ -280,7 +280,7 @@ public class War {
     private Component getBossBarName(@NotNull HuskTowns plugin, @NotNull Town opponents, int aliveOpponents) {
         return plugin.getLocales().getLocale("war_boss_bar_title",
             opponents.getName(), Integer.toString(aliveOpponents),
-            Integer.toString(opponents.getMembers().keySet().size())
+            Integer.toString(opponents.getMembers().size())
         ).map(MineDown::toComponent).orElse(Component.empty());
     }
 
@@ -308,7 +308,7 @@ public class War {
         return plugin.getOnlineUsers().stream()
             .filter(user -> (onlyAlive ? this.aliveAttackers : getAttacking(plugin).getMembers().keySet())
                 .contains(user.getUuid()))
-            .collect(Collectors.toUnmodifiableList());
+            .toList();
     }
 
     @NotNull
@@ -322,7 +322,7 @@ public class War {
         return plugin.getOnlineUsers().stream()
             .filter(user -> (onlyAlive ? this.aliveDefenders : getDefending(plugin).getMembers().keySet())
                 .contains(user.getUuid()))
-            .collect(Collectors.toUnmodifiableList());
+            .toList();
     }
 
     @NotNull

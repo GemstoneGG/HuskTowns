@@ -27,43 +27,44 @@ import org.jetbrains.annotations.NotNull;
 
 public class TownWarCreateEvent extends Event implements ITownWarCreateEvent{
 
-        private static final HandlerList HANDLER_LIST = new HandlerList();
-        private final Town attackingTown;
-        private final Town defendingTown;
-        private final War war;
+    private static final HandlerList HANDLER_LIST = new HandlerList();
+    private final Town attackingTown;
+    private final Town defendingTown;
+    private final War war;
 
-        public TownWarCreateEvent(@NotNull Town attackingTown, @NotNull Town defendingTown, @NotNull War war) {
-            this.attackingTown = attackingTown;
-            this.defendingTown = defendingTown;
-            this.war = war;
-        }
+    public TownWarCreateEvent(@NotNull Town attackingTown, @NotNull Town defendingTown, @NotNull War war) {
+        this.attackingTown = attackingTown;
+        this.defendingTown = defendingTown;
+        this.war = war;
+    }
 
-        @Override
-        @NotNull
-        public Town getTownAttacking() {
-            return attackingTown;
-        }
+    @Override
+    @NotNull
+    public Town getTownAttacking() {
+        return attackingTown;
+    }
 
-        @Override
-        @NotNull
-        public Town getTownDefending() {
-            return defendingTown;
-        }
+    @Override
+    @NotNull
+    public Town getTownDefending() {
+        return defendingTown;
+    }
 
-        @Override
-        @NotNull
-        public War getWar() {
-            return war;
-        }
+    @Override
+    @NotNull
+    public War getWar() {
+        return war;
+    }
 
-        @Override
-        @NotNull
-        public HandlerList getHandlers() {
-            return HANDLER_LIST;
-        }
-        @NotNull
-        @SuppressWarnings("unused")
-        public static HandlerList getHandlerList() {
-            return HANDLER_LIST;
-        }
+    @Override
+    @NotNull
+    public HandlerList getHandlers() {
+        return HANDLER_LIST;
+    }
+
+    @NotNull
+    @SuppressWarnings("unused")
+    public static HandlerList getHandlerList() {
+        return HANDLER_LIST;
+    }
 }

@@ -63,7 +63,7 @@ public interface EventDispatcher {
     }
 
     /**
-     * Fire an event on this thread, and return whether the event was canceled
+     * Fire an event on this thread and return whether the event was canceled
      *
      * @param event The event to fire
      * @param <T>   The type of event to fire

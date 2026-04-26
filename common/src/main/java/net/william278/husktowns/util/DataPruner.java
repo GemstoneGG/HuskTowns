@@ -108,10 +108,6 @@ public interface DataPruner {
         return inactiveUsers.stream()
             .flatMap(user -> getPlugin().getUserTown(user.user()).stream().map(Member::town))
             .filter(town -> inactiveUuids.containsAll(town.getMembers().keySet())).distinct()
-            .peek(town -> {
-                getPlugin().log(Level.INFO, "Pruning town " + town.getName() + "...");
-                getPlugin().getManager().towns().deleteTownData(actor, town);
-            })
             .count();
     }
 

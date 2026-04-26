@@ -34,13 +34,14 @@ public record ServerWorld(@NotNull String server, @NotNull World world) {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof final ServerWorld serverWorld)) {
+        if (!(obj instanceof ServerWorld(String server1, World world1))) {
             return false;
         }
-        return serverWorld.server().equals(server) && serverWorld.world().equals(world);
+        return server1.equals(server) && world1.equals(world);
     }
 
     @Override
+    @NotNull
     public String toString() {
         return server + "/" + world.getName();
     }

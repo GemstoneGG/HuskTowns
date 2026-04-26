@@ -403,15 +403,15 @@ public class BukkitHuskTowns extends JavaPlugin implements HuskTowns, BukkitTask
         try {
             final Metrics metrics = new Metrics(this, BSTATS_PLUGIN_ID);
             metrics.addCustomChart(new SimplePie("bungee_mode",
-                () -> settings.getCrossServer().isEnabled() ? "true" : "false"));
+                () -> Boolean.toString(settings.getCrossServer().isEnabled())));
             metrics.addCustomChart(new SimplePie("language",
                 () -> settings.getLanguage().toLowerCase()));
             metrics.addCustomChart(new SimplePie("database_type",
                 () -> settings.getDatabase().getType().name().toLowerCase()));
             metrics.addCustomChart(new SimplePie("using_economy",
-                () -> getEconomyHook().isPresent() ? "true" : "false"));
+                () -> Boolean.toString(getEconomyHook().isPresent())));
             metrics.addCustomChart(new SimplePie("using_map",
-                () -> getMapHook().isPresent() ? "true" : "false"));
+                () -> Boolean.toString(getMapHook().isPresent())));
             getMapHook().ifPresent(hook -> metrics.addCustomChart(new SimplePie("map_type",
                 () -> hook.getHookInfo().id().toLowerCase())));
             getMessageBroker().ifPresent(broker -> metrics.addCustomChart(new SimplePie("messenger_type",

@@ -32,7 +32,6 @@ import net.william278.husktowns.town.Member;
 import net.william278.husktowns.town.Privilege;
 import net.william278.husktowns.town.Role;
 import net.william278.husktowns.town.Town;
-import net.william278.husktowns.user.BukkitUser;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -145,12 +144,12 @@ public class LuckPermsHook extends Hook {
         }
 
         private void setContextsFromRules(@NotNull ContextConsumer consumer, Rules wilderness) {
-            consumer.accept(ContextKey.CAN_PLAYER_BUILD.getKey(plugin), wilderness
-                .cancelOperation(OperationType.BLOCK_BREAK, plugin.getFlags()) ? "false" : "true");
-            consumer.accept(ContextKey.CAN_PLAYER_OPEN_CONTAINERS.getKey(plugin), wilderness
-                .cancelOperation(OperationType.CONTAINER_OPEN, plugin.getFlags()) ? "false" : "true");
-            consumer.accept(ContextKey.CAN_PLAYER_INTERACT.getKey(plugin), wilderness
-                .cancelOperation(OperationType.BLOCK_INTERACT, plugin.getFlags()) ? "false" : "true");
+            consumer.accept(ContextKey.CAN_PLAYER_BUILD.getKey(plugin), Boolean.toString(!wilderness
+                  .cancelOperation(OperationType.BLOCK_BREAK, plugin.getFlags())));
+            consumer.accept(ContextKey.CAN_PLAYER_OPEN_CONTAINERS.getKey(plugin), Boolean.toString(!wilderness
+                  .cancelOperation(OperationType.CONTAINER_OPEN, plugin.getFlags())));
+            consumer.accept(ContextKey.CAN_PLAYER_INTERACT.getKey(plugin), Boolean.toString(!wilderness
+                  .cancelOperation(OperationType.BLOCK_INTERACT, plugin.getFlags())));
         }
     }
 

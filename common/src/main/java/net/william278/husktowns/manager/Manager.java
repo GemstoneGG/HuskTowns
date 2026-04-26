@@ -41,7 +41,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
- * Manager, for interfacing and editing town, claim and user data
+ * Manager for interfacing and editing town, claim, and user data
  */
 public class Manager {
 
@@ -136,7 +136,7 @@ public class Manager {
     }
 
     /**
-     * If the user is a member of a town, and has privileges, run the callback
+     * If the user is a member of a town and has privileges, run the callback
      *
      * @param user      the user
      * @param privilege the privilege to check for

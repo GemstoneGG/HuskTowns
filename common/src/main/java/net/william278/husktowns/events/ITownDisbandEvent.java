@@ -20,7 +20,7 @@
 package net.william278.husktowns.events;
 
 /**
- * An event fired when a town is disbanded by a player
+ * An event fired when a player disbands a town
  */
 public interface ITownDisbandEvent extends OnlineUserEvent, TownEvent, Cancellable {
 

@@ -39,7 +39,6 @@ public interface ConfigProvider {
         .charset(StandardCharsets.UTF_8)
         .setNameFormatter(NameFormatters.LOWER_UNDERSCORE);
 
-
     default void loadConfig() {
         loadSettings();
         loadLocales();

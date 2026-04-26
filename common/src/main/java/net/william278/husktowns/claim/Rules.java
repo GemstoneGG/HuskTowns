@@ -62,7 +62,7 @@ public class Rules {
     /**
      * Create a new Rules instance from a {@link Flag}-value map
      *
-     * @param rules the rules map to create from
+     * @param rules the rule map to create from
      * @return the new Rules instance
      */
     @NotNull

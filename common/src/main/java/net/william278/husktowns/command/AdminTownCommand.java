@@ -496,7 +496,7 @@ public final class AdminTownCommand extends Command {
         @Override
         public void execute(@NotNull CommandUser executor, @NotNull String[] args) {
             final TownSettings.TownPruningSettings settings = plugin.getSettings().getTowns().getPruneInactiveTowns();
-            final int days = parseTimeArgAsDays(args, 0).orElse(settings.getPruneAfterDays());
+            final int days = parseTimeArgAsDays(args).orElse(settings.getPruneAfterDays());
             if (days <= 0) {
                 plugin.getLocales().getLocale("error_invalid_syntax", getUsage())
                     .ifPresent(executor::sendMessage);

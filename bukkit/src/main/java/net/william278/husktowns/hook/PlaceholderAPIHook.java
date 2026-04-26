@@ -30,7 +30,6 @@ import net.william278.husktowns.claim.TownClaim;
 import net.william278.husktowns.town.Member;
 import net.william278.husktowns.town.Role;
 import net.william278.husktowns.town.Town;
-import net.william278.husktowns.user.BukkitUser;
 import net.william278.husktowns.user.OnlineUser;
 import net.william278.husktowns.user.User;
 import org.bukkit.OfflinePlayer;

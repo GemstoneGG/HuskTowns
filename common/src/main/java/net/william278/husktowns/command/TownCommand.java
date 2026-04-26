@@ -121,7 +121,7 @@ public final class TownCommand extends Command {
 
         @Override
         public void execute(@NotNull CommandUser executor, @NotNull String[] args) {
-            final Optional<String> name = parseGreedyString(args, 0);
+            final Optional<String> name = parseGreedyString(args);
             if (name.isEmpty()) {
                 plugin.getLocales().getLocale("error_invalid_syntax", getUsage())
                     .ifPresent(executor::sendMessage);
@@ -613,7 +613,7 @@ public final class TownCommand extends Command {
                 world = parseStringArg(args, 2).flatMap(worldName -> plugin.getWorlds().stream()
                         .filter(w -> w.getName().equals(worldName))
                         .findFirst())
-                    .orElse(plugin.getWorlds().get(0));
+                    .orElse(plugin.getWorlds().getFirst());
                 if (x.isEmpty() || z.isEmpty()) {
                     plugin.getLocales().getLocale("error_invalid_syntax", getUsage())
                         .ifPresent(executor::sendMessage);
@@ -765,7 +765,7 @@ public final class TownCommand extends Command {
 
         @Override
         public void execute(@NotNull CommandUser executor, @NotNull String[] args) {
-            final Optional<String> meta = parseGreedyString(args, 0);
+            final Optional<String> meta = parseGreedyString(args);
             if (meta.isEmpty()) {
                 plugin.getLocales().getLocale("error_invalid_syntax", getUsage())
                     .ifPresent(executor::sendMessage);
@@ -1092,7 +1092,7 @@ public final class TownCommand extends Command {
         @Override
         public void execute(@NotNull CommandUser executor, @NotNull String[] args) {
             final OnlineUser user = (OnlineUser) executor;
-            final Optional<String> message = parseGreedyString(args, 0);
+            final Optional<String> message = parseGreedyString(args);
             plugin.getManager().towns().sendChatMessage(user, message.orElse(null));
         }
     }

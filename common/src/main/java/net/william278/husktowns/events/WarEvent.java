@@ -26,7 +26,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * An event that involves a {@link War}
  */
-public interface WarEvent extends Event{
+public interface WarEvent extends Event {
 
     @NotNull
     Town getTownAttacking();
@@ -36,4 +36,5 @@ public interface WarEvent extends Event{
 
     @NotNull
     War getWar();
+
 }

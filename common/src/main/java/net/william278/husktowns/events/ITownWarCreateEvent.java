@@ -22,5 +22,6 @@ package net.william278.husktowns.events;
 /**
  * An event fired when a town war is created
  */
-public interface ITownWarCreateEvent extends WarEvent{
+public interface ITownWarCreateEvent extends WarEvent {
+
 }
