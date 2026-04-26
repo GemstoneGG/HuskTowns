@@ -104,11 +104,24 @@ public interface DataPruner {
             .map(SavedUser::user).map(User::getUuid)
             .collect(Collectors.toUnmodifiableSet());
 
-        // Find towns matching the inactive users and prune
-        return inactiveUsers.stream()
+        // Find towns whose entire membership is inactive
+        final List<Town> townsToPrune = inactiveUsers.stream()
             .flatMap(user -> getPlugin().getUserTown(user.user()).stream().map(Member::town))
-            .filter(town -> inactiveUuids.containsAll(town.getMembers().keySet())).distinct()
-            .count();
+            .filter(town -> inactiveUuids.containsAll(town.getMembers().keySet()))
+            .distinct()
+            .toList();
+
+        long pruned = 0L;
+        for (Town town : townsToPrune) {
+            try {
+                getPlugin().getManager().towns().deleteTownData(actor, town);
+                pruned++;
+            } catch (Throwable t) {
+                getPlugin().log(Level.WARNING,
+                    "Failed to prune inactive town " + town.getName() + " ", t);
+            }
+        }
+        return pruned;
     }
 
     /**
